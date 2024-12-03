@@ -1,134 +1,99 @@
-# Frontend Developer Take-Home Test
+# E-Commerce Web Application
 
 ## Overview
 
-Develop a responsive e-commerce web application that allows users to browse products, view product details, and add products to a shopping cart.
-The application should integrate with a backend API to fetch product data.
+This project is a fully functional, responsive e-commerce web application built with **Next.js**, **TypeScript**, and **Tailwind CSS**. It provides a platform for users to browse products, view product details, and manage a shopping cart. The app integrates with a mock API (Fake Store API) to fetch product data and provides basic cart functionality, including adding/removing products and displaying the total quantity and price.
 
-- The goal is a clear demonstration of quality, functionality, and thought process.
-- **Timebox:** The test is designed to be completed in 6 hours or less.
-- **Commit Often:** Show your working process through regular commits.
-- **External dependencies:** Use any external dependencies you see fit, you do not need to implement everything from scratch.
-- **Keep It Minimal:** Use lightweight libraries and avoid adding unnecessary features, or over-engineering the solution.
+## Features
 
-## Requirements
+- **Product Listing Page**: Displays a list of products with images, names, and prices. It supports pagination for better browsing experience.
+- **Product Detail Page**: Shows detailed information about a selected product and includes an "Add to Cart" button.
+- **Shopping Cart**: Allows users to view the products they have added, remove products, and view the total price and quantity of items.
+- **Responsive Design**: The app is optimized for desktop, tablet, and mobile devices using Tailwind CSS.
 
-### Functional
+## How to Run the Application
 
-1. **Product Listing Page**
-    - Display a list of products with images, names, and prices.
-    - Implement pagination or infinite scrolling.
+### Steps to Run Locally
 
-2. **Product Detail Page**
-    - Show detailed information about the selected product.
-    - Include an "Add to Cart" button.
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/SAIKAT-ROY-CHANDAN/test-frontend-engineer.git
+    ```
 
-3. **Shopping Cart**
-    - Allow users to view products added to their cart.
-    - Display the total price and quantity of items.
-    - Enable users to remove items from the cart.
+2. **Navigate to the project directory**:
+    ```bash
+    cd test-frontend-engineer
+    ```
 
-4. **Responsive Design**
-    - Ensure the application is usable on desktop, tablet, and mobile devices.
+3. **Install dependencies**:
+    ```bash
+    yarn install
+    ```
 
-### Technical
+4. **Run the development server**:
+    ```bash
+    yarn dev
+    ```
 
-- **Frameworks & Libraries**
-    - **Next.js** with **TypeScript**.
-    - Style components using **Tailwind CSS**.
+5. **Open the application in your browser**:
+    - Visit [http://localhost:3000](http://localhost:3000) to view the app.
 
-- **State Management**
-    - Manage application state efficiently.
+### Available Scripts
 
-- **TypeScript**
-    - Use TypeScript for type-checking and code quality.
-    - 
-- **API Integration**
-    - Fetch data from a provided RESTful API endpoint.
-    - Handle loading states and error handling gracefully.
-    - API should be typed using TypeScript.
+- **`dev`**: Starts the development server using `turbopack` for faster builds.
+    ```bash
+    yarn dev
+    ```
+- **`build`**: Builds the production version of the application.
+    ```bash
+    yarn build
+    ```
+- **`start`**: Starts the production server after building the app.
+    ```bash
+    yarn start
+    ```
+- **`lint`**: Runs the linting process to ensure code quality.
+    ```bash
+    yarn lint
+    ```
 
-- **Code Quality**
-    - Apply **SOLID principles** and design patterns.
-    - Write consistent, clean, maintainable, and scalable code.
-    - Create universal and reusable UI components.
+## Architectural Decisions
 
-- **Testing**
-    - Write unit tests for critical components (optional).
+- **Next.js**: The app uses Next.js for server-side rendering and routing. It ensures fast page loads and optimized performance.
+- **TypeScript**: TypeScript is used to enhance code quality by providing strong typing, reducing runtime errors, and improving developer experience.
+- **Tailwind CSS**: Tailwind CSS is used for styling because it promotes rapid development with utility-first classes. It allows for a highly customizable design system.
+- **Redux Toolkit**: Redux Toolkit is used for state management, which provides a clean and efficient way to manage the application state. It also includes **redux-persist** to ensure that the cart data is persisted across browser sessions.
+- **Sonner**: Sonner is used to show notifications when an item is added or removed from the cart. It provides a sleek and customizable toast notification system.
+- **Fake Store API**: A mock API is used for fetching product data. In a production environment, this would be replaced by a real e-commerce backend.
 
-## Getting Started
+## Trade-offs and Assumptions
 
-1. **Fork this Repository**
-    - You can start by forking this repository.
+- **API Integration**: The app uses a mock API (Fake Store API) for fetching product data. This was a trade-off made for simplicity and to meet the project requirements within the timebox. In a real-world scenario, a custom API or a third-party e-commerce service would be used.
 
-2. **Setup Project**
-    - Initialize a new Next.js project with TypeScript.
-    - Install Tailwind CSS and configure it.
+- **Performance**: The app implements infinite scrolling on the product listing page, which allows products to load dynamically as the user scrolls down the page. This approach provides a more seamless user experience compared to traditional pagination, but it can introduce performance challenges with large datasets. However, for simplicity, the mock API was used and the app doesn't implement any complex lazy loading or performance optimizations for the product images.
 
-3. **API Endpoint**
-    - Use a mock API for product data such as [Fake Store API](https://fakestoreapi.com/).
+- **Cart Management**: The cart supports adding and removing items. The assumption is that a user would have a limited number of items in the cart, and the cart is stored in memory.
 
-4. **Development**
-    - Follow the requirements to build the application.
-    - Ensure the application builds and runs without errors.
+- **Responsive Design**: The app is designed to be responsive across all devices, but due to time constraints, only essential responsive adjustments were made using Tailwind CSS. More complex layout changes could be added as needed.
 
-## Submission Guidelines
+## Code Quality and Structure
 
-- **Repository**
-    - Push your code to a **public GitHub repository**.
-    - Ensure the repository has a clear commit history, and commit regularly.
-    - Ensure the repository is a fork of this repository.
+- **SOLID Principles**: The code adheres to basic SOLID principles by separating concerns into smaller, reusable components. Although components are not reused in this particular implementation, the structure remains modular and maintainable.
 
-- **README File**
-    - Include instructions on how to run your application.
-    - Describe your thought process and any architectural decisions.
-    - Mention any trade-offs or assumptions made during development.
+- **Clean Code**: Throughout the application, the code is kept simple and clean to ensure that it is easy to read, maintain, and extend.
 
-- **Deployment**
-    - (Optional) Deploy your application using services like **Vercel**.
-    - Provide a link to the live application if deployed.
+- **TypeScript**: The app uses TypeScript for strong typing, which helps catch potential bugs early and improves code maintainability.
 
-- **Submission**
-    - Email us the link to your GitHub repository (and live demo if available) at [sam.thompson@playa3ull.games].
+- **Reusability**: The app does not have components reused across multiple pages. However, the UI components are designed to be self-contained and modular, making them easier to maintain in the future.
 
-## Evaluation Criteria
 
-- **Functionality**
-    - Does the application meet all the functional requirements?
 
-- **Code Quality**
-    - Is the code clean, well-organized, and maintainable?
-    - Are SOLID principles and design patterns appropriately applied?
+## Conclusion
 
-- **Technical Skills**
-    - Effective use of React, TypeScript, and Tailwind CSS.
-    - Proper integration with the backend API.
+This project demonstrates how to build a basic e-commerce application with essential features like browsing products, viewing product details, and managing a shopping cart. It showcases the use of modern front-end technologies such as Next.js, TypeScript, Tailwind CSS, Redux, and Sonner for a responsive and smooth user experience.
 
-- **User Experience**
-    - Is the UI responsive and user-friendly?
-    - Does the design consider good UX practices?
+## Deployment
 
-- **Problem-Solving**
-    - How were challenges addressed?
-    - Were creative solutions implemented?
+The application is deployed on Vercel and can be accessed via the following link:
 
-- **Documentation**
-    - Clarity of the README file.
-    - Use of comments and documentation within the code.
-
-## Extra Credit
-
-*These are not required but can showcase your additional skills:*
-
-- **GraphQL or tRPC**
-    - Use GraphQL or tRPC instead of REST for API interactions.
-
-- **Monorepo Setup**
-    - Organize your project using a monorepo approach.
-
-- **SEO Enhancements**
-    - Implement SEO optimisation.
-
-- **E-commerce Features**
-    - Add user authentication.
-    - Implement a checkout process.
+[Live Demo](https://test-frontend-engineer.vercel.app/)
