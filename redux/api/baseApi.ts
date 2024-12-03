@@ -10,10 +10,16 @@ export const baseApi = createApi({
             query: () => ({
                 url: '/products'
             })
+        }),
+        getProductById: builder.query({
+            query: (id: string | number) => ({
+                url: `/products/${id}`,
+            })
         })
     })
 })
 
 export const {
-    useGetProductsQuery
+    useGetProductsQuery,
+    useGetProductByIdQuery
 } = baseApi
