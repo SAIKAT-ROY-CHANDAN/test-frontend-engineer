@@ -9,8 +9,8 @@ const ProductCard = () => {
     if (isLoading) return <div>Loading...</div>
 
     return (
-        <div>
-            <h1 className="text-4xl font-bold py-4">Products</h1>
+        <div className="mt-6">
+            <h1 className="text-4xl font-bold py-4 ml-4">Products</h1>
             <div className="grid grid-cols-1 xl:grid-cols-3 md:grid-cols-2 mx-2 md:mx-0 gap-x-4 gap-y-10 justify-items-center">
                 {data?.map((product: Product) => (
                     <div

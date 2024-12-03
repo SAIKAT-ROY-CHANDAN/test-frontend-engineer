@@ -8,7 +8,7 @@ export default function RootLayout({
 }>) {
     return (
         <ReduxProvider>
-            <div className="flex items-center justify-center gap-x-3 mt-2 text-xl">
+            <div className="flex items-center justify-center gap-x-3 mt-2 text-xl border-b py-6 max-w-7xl mx-auto">
                 <Link href='/' className="hover:text-orange-400">
                     Home
                 </Link>
