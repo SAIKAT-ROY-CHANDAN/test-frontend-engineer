@@ -2,6 +2,7 @@
 import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 import { removeFromCart } from '@/redux/slices/cartSlice'
 import Image from 'next/image'
+import { toast } from 'sonner'
 
 const Cart = () => {
   const dispatch = useAppDispatch()
@@ -9,6 +10,7 @@ const Cart = () => {
 
   const handleDelete = (id: number) => {
     dispatch(removeFromCart(id))
+    toast.success("Item removed from the cart!"); 
   }
 
   return (

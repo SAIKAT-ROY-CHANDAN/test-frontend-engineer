@@ -6,6 +6,7 @@ import { addToCart } from '@/redux/slices/cartSlice';
 import { Product } from '@/types/global';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { toast } from 'sonner';
 
 const ProductDetails = ({ params }: { params: Promise<{ cartId: string }> }) => {
     const [cartId, setCartId] = useState<string | null>(null);
@@ -22,6 +23,7 @@ const ProductDetails = ({ params }: { params: Promise<{ cartId: string }> }) => 
 
     const handleAddToCart = (product: Product) => {
         dispatch(addToCart(product))
+        toast.success('Product added to Cart')
     }
 
 
@@ -33,11 +35,11 @@ const ProductDetails = ({ params }: { params: Promise<{ cartId: string }> }) => 
     if (error) return <p>Error fetching product.</p>;
 
     const imageUrl = data?.image && data?.image !== "" ? data?.image : null;
-    console.log(data);
+
     return (
         <div className='max-w-7xl mx-auto'>
             <div className='flex items-center justify-center mt-16'>
-                <div className='border w-[500px] p-8 rounded-lg'>
+                <div className='border w-full mx-4 sm:mx-0 sm:w-[500px] p-8 rounded-lg'>
                     {imageUrl ?
                         <Image
                             src={imageUrl}
