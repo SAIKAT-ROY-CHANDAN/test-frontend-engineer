@@ -31,7 +31,7 @@ const ProductDetails = ({ params }: { params: Promise<{ cartId: string }> }) => 
         skip: !cartId, // Skip query until cartId is available
     });
 
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <p className='max-w-7xl mx-auto'>Loading...</p>;
     if (error) return <p>Error fetching product.</p>;
 
     const imageUrl = data?.image && data?.image !== "" ? data?.image : null;
